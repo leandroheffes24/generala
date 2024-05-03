@@ -1,6 +1,6 @@
 import styles from './Game.module.css'
 
-const Game = () => {
+const Game = ({playersList}) => {
     return (
         <div>
             game
