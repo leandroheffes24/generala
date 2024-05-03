@@ -1,0 +1,44 @@
+.startSection{
+    background-image: url('../../assets/images/Sprinkle.svg');
+    padding: 50px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.startContainer{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.title{
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.developedByText{
+    font-size: .8rem;
+    color: rgb(56, 56, 56);
+}
+
+.developedByLink{
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+    font-weight: 600;
+}
+
+.startButtonContainer{
+    text-align: center;
+}
+
+.startButton{
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 50px;
+}
