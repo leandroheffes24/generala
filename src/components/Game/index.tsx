@@ -1,7 +1,9 @@
 // import styles from './Game.module.css'
+import { players } from "../../interfaces/Players"
 
-// const Game = ({playersList}) => {
 const Game = () => {
+    console.log("aca llegaron los jugadores", players);
+
     return (
         <div>
             game

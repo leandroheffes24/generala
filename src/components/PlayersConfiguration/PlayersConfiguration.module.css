@@ -1,0 +1,63 @@
+.playersConfigSection{
+    /* border: 1px solid red; */
+    height: 100vh;
+    background-image: url('../../assets/images/Sprinkle.svg');
+}
+
+.playersListContainerAndTitle{
+    /* border: 1px solid red; */
+}
+
+.title{
+    font-size: 1.7rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding: 7px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.playersListContainer{
+    /* border: 1px solid greenyellow; */
+}
+
+.noPlayersText{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(65, 65, 65);
+    margin: 20px 0;
+}
+
+.playerList{
+    list-style: none;
+    margin: 20px 0;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.playerItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+.playerNameSpan{
+
+}
+
+.deletePlayerButton{
+    background-color: rgba(150, 150, 150, 0.3);
+    border: none;
+    border-radius: 3px;
+}
+
+.removePlayerIcon{
+    width: 24px;
+    color: gray;
+}

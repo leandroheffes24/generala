@@ -1,17 +1,19 @@
 export interface Player {
     name: string
     points: {
-        uno: number
-        dos: number
-        tres: number
-        cuatro: number
-        cinco: number
-        seis: number
-        escalera: number
-        full: number
-        poker: number
-        generala: number
-        doble: number
+        uno: number | undefined
+        dos: number | undefined
+        tres: number | undefined
+        cuatro: number | undefined
+        cinco: number | undefined
+        seis: number | undefined
+        escalera: number | undefined
+        full: number | undefined
+        poker: number | undefined
+        generala: number | undefined
+        doble: number | undefined
     }
-    total: number
+    total: number | undefined
 }
+
+export const players: Player[] = [];
