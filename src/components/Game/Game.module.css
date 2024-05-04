@@ -1,0 +1,33 @@
+.gameSection{
+    height: 100vh;
+    background-image: url('../../assets/images/Sprinkle.svg');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.juegosContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.juegoContainerRef{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+.juegoContainer{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 1rem;
+}
