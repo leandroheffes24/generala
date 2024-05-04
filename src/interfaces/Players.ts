@@ -1,4 +1,7 @@
+import { Id } from "../types/Types"
+
 export interface Player {
+    id: Id
     name: string
     points: {
         uno: number | undefined
