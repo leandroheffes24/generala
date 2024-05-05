@@ -1,0 +1,7 @@
+.addPointsContainer{
+    background-color: red;
+    color: white;
+    position: fixed;
+    top: 0;
+    display: block;
+}

@@ -1,5 +1,7 @@
 import styles from './Game.module.css'
 import { players } from "../../interfaces/Players"
+import { useState } from 'react'
+import AddPointsContainer from './AddPointsContainer'
 
 const Game = () => {
     let width: number = 0
@@ -21,21 +23,29 @@ const Game = () => {
         width = 9
     }
 
+    const [showAddPointsContainer, setShowAddPointsContainer] = useState(false)
+    const [gameToAddPoints, setGameToAddPoints] = useState<number|string>('')
+
+    const handleAddPoints = (game: string | number): void => {
+        setGameToAddPoints(game)
+        setShowAddPointsContainer(!showAddPointsContainer)
+    }
+
     const renderPlayersPoints = () => {
         return players.map(player => (
             <div className={styles.juegosContainer} style={{width: `${width}%`}} key={player.id}>
                 <div className={styles.juegoContainer}>{player.name}</div>
-                <button className={styles.juegoContainer}>{player.points.uno === undefined ? '-' : player.points.uno}</button>
-                <button className={styles.juegoContainer}>{player.points.dos === undefined ? '-' : player.points.dos}</button>
-                <button className={styles.juegoContainer}>{player.points.tres === undefined ? '-' : player.points.tres}</button>
-                <button className={styles.juegoContainer}>{player.points.cuatro === undefined ? '-' : player.points.cuatro}</button>
-                <button className={styles.juegoContainer}>{player.points.cinco === undefined ? '-' : player.points.cinco}</button>
-                <button className={styles.juegoContainer}>{player.points.seis === undefined ? '-' : player.points.seis}</button>
-                <button className={styles.juegoContainer}>{player.points.escalera === undefined ? '-' : player.points.escalera}</button>
-                <button className={styles.juegoContainer}>{player.points.full === undefined ? '-' : player.points.full}</button>
-                <button className={styles.juegoContainer}>{player.points.poker === undefined ? '-' : player.points.poker}</button>
-                <button className={styles.juegoContainer}>{player.points.generala === undefined ? '-' : player.points.generala}</button>
-                <button className={styles.juegoContainer}>{player.points.doble === undefined ? '-' : player.points.doble}</button>
+                <button onClick={() => handleAddPoints(1)} className={styles.juegoContainer}>{player.points.uno === undefined ? '-' : player.points.uno}</button>
+                <button onClick={() => handleAddPoints(2)} className={styles.juegoContainer}>{player.points.dos === undefined ? '-' : player.points.dos}</button>
+                <button onClick={() => handleAddPoints(3)} className={styles.juegoContainer}>{player.points.tres === undefined ? '-' : player.points.tres}</button>
+                <button onClick={() => handleAddPoints(4)} className={styles.juegoContainer}>{player.points.cuatro === undefined ? '-' : player.points.cuatro}</button>
+                <button onClick={() => handleAddPoints(5)} className={styles.juegoContainer}>{player.points.cinco === undefined ? '-' : player.points.cinco}</button>
+                <button onClick={() => handleAddPoints(6)} className={styles.juegoContainer}>{player.points.seis === undefined ? '-' : player.points.seis}</button>
+                <button onClick={() => handleAddPoints('escalera')} className={styles.juegoContainer}>{player.points.escalera === undefined ? '-' : player.points.escalera}</button>
+                <button onClick={() => handleAddPoints('full')} className={styles.juegoContainer}>{player.points.full === undefined ? '-' : player.points.full}</button>
+                <button onClick={() => handleAddPoints('poker')} className={styles.juegoContainer}>{player.points.poker === undefined ? '-' : player.points.poker}</button>
+                <button onClick={() => handleAddPoints('generala')} className={styles.juegoContainer}>{player.points.generala === undefined ? '-' : player.points.generala}</button>
+                <button onClick={() => handleAddPoints('doble')} className={styles.juegoContainer}>{player.points.doble === undefined ? '-' : player.points.doble}</button>
                 <button className={styles.juegoContainer}>{player.total === undefined ? '-' : player.total}</button>
             </div>
         ))
@@ -60,6 +70,8 @@ const Game = () => {
             </div>
 
             {renderPlayersPoints()}
+
+            {showAddPointsContainer && <AddPointsContainer game={gameToAddPoints}/>}
         </section>
     )
 }
