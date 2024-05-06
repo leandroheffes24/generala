@@ -7,6 +7,10 @@
     padding: 10px;
 }
 
+.gameButtonsContainer{
+    width: 100%;
+}
+
 .juegosContainer{
     display: flex;
     flex-direction: column;

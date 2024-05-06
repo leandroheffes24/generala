@@ -1,0 +1,28 @@
+.winnerPlayerContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(230, 230, 230, 0.7);
+    padding: 20px;
+    box-shadow: 0px 0px 0px 400px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    width: 80%;
+}
+
+.title{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.restartButton{
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgba(180, 180, 180, 0.7);
+    border: none;
+    border-radius: 5px;
+    padding: 7px 30px;
+}

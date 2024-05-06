@@ -1,6 +1,7 @@
 import styles from './Game.module.css'
 import { players } from "../../interfaces/Players"
 import { useState } from 'react'
+import WinnerPlayer from './WinnerPlayer'
 import AddPointsContainer from './AddPointsContainer'
 
 const Game = () => {
@@ -24,6 +25,7 @@ const Game = () => {
     }
 
     const [showAddPointsContainer, setShowAddPointsContainer] = useState(false)
+    const [showWinnerPlayer, setShowWinnerPlayer] = useState(false)
     const [gameToAddPoints, setGameToAddPoints] = useState<number|string>('')
     const [gameName, setGameName] = useState<string>('')
     const [playerToChangePoints, setPlayerToChangePoints] = useState<number>(100)
@@ -60,18 +62,43 @@ const Game = () => {
     }
 
     const addPoints = (points: number) => {
-        const game = players[playerToChangePoints].points[gameName]
-        if(typeof game !== "undefined"){
-            players[playerToChangePoints].total -= players[playerToChangePoints].points[gameName]
-            players[playerToChangePoints].points[gameName] = points
-            players[playerToChangePoints].total += points
-            setShowAddPointsContainer(false)
-
+        if(points !== 55 && points !== 105){
+            const game = players[playerToChangePoints].points[gameName]
+            if(typeof game !== "undefined"){
+                players[playerToChangePoints].total -= players[playerToChangePoints].points[gameName]
+                players[playerToChangePoints].points[gameName] = points
+                players[playerToChangePoints].total += points
+                setShowAddPointsContainer(false)
+            } else {
+                players[playerToChangePoints].points[gameName] = points
+                players[playerToChangePoints].total += points
+                setShowAddPointsContainer(false)
+            }
         } else {
-            players[playerToChangePoints].points[gameName] = points
-            players[playerToChangePoints].total += points
-            setShowAddPointsContainer(false)
+            setShowWinnerPlayer(!showWinnerPlayer)
         }
+    }
+
+    const restartGame = () => {
+        setShowAddPointsContainer(false)
+        setGameName('')
+        setGameToAddPoints('')
+        setPlayerToChangePoints(100)
+        setShowWinnerPlayer(false)
+        players.map(player => {
+            player.points.uno = undefined,
+            player.points.dos = undefined,
+            player.points.tres = undefined,
+            player.points.cuatro = undefined,
+            player.points.cinco = undefined,
+            player.points.seis = undefined,
+            player.points.escalera = undefined,
+            player.points.full = undefined,
+            player.points.poker = undefined,
+            player.points.generala = undefined,
+            player.points.doble = undefined,
+            player.total = 0
+        })
     }
 
     return (
@@ -95,6 +122,8 @@ const Game = () => {
             {renderPlayersPoints()}
 
             {showAddPointsContainer && <AddPointsContainer game={gameToAddPoints} close={closeAddPointsContainer} pointsToAdd={addPoints}/>}
+
+            {showWinnerPlayer && <WinnerPlayer player={playerToChangePoints} restartGame={restartGame}/>}
         </section>
     )
 }
