@@ -16,7 +16,7 @@ export interface Player {
         generala: number | undefined
         doble: number | undefined
     }
-    total: number | undefined
+    total: number
 }
 
 export const players: Player[] = [];

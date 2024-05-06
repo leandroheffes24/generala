@@ -37,7 +37,7 @@ const PlayersConfiguration: React.FC<PlayersConfigurationProps> = ({changeCompon
                         generala: undefined,
                         doble: undefined,
                     },
-                    total: undefined
+                    total: 0
                 }
 
                 const newPlayers = [
