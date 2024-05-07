@@ -4,6 +4,7 @@ export interface Player {
     id: Id
     name: string
     points: {
+        [key: string]: number | undefined
         uno: number | undefined
         dos: number | undefined
         tres: number | undefined

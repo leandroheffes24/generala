@@ -65,7 +65,7 @@ const Game = () => {
         if(points !== 55 && points !== 105){
             const game = players[playerToChangePoints].points[gameName]
             if(typeof game !== "undefined"){
-                players[playerToChangePoints].total -= players[playerToChangePoints].points[gameName]
+                players[playerToChangePoints].total -= players[playerToChangePoints].points[gameName] || 0
                 players[playerToChangePoints].points[gameName] = points
                 players[playerToChangePoints].total += points
                 setShowAddPointsContainer(false)
